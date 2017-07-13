@@ -103,7 +103,7 @@ class scoped_refptr {
 };
 ```
 
-> scoped_refptr实现了基于引用技术的内存管理，实际使用中同RefCountedObject配合来实现对指针对象的内存管理。
+> scoped_refptr实现了基于引用计数的内存管理，实际使用中同RefCountedObject配合来实现对指针对象的内存管理。
 
 ### RefCountedObject
 ```C++
@@ -116,7 +116,7 @@ class RefCountInterface {
   virtual ~RefCountInterface() {}
 };
 ```
-> RefCountInterface定义引用技术接口
+> RefCountInterface定义引用计数接口
 
 ```C++
 template <class T>
