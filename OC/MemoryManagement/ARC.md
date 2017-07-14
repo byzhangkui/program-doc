@@ -1,3 +1,4 @@
+# ARC(Automatic Reference Counting)
 苹果在Xcode 4.2提供了ARC(Automatic Reference Counting)支持，自动管理内存。在ARC之前，是MRC(manual reference counting)，程序员需要通过显示调用retain/release来管理引用计数。ARC与MRC的不同在于ARC是在编译期自动添加代码来保证对象的生命周期。
 
 # 基本内存管理原则
@@ -8,5 +9,17 @@
 - 你不能释放你并不拥有的对象。
 
 # NSObject协议
+在NSObject protocol中定义了retain/release方法。
+```Objective-C
+@protocol NSObject
+...
+- (instancetype)retain OBJC_ARC_UNAVAILABLE;
+- (oneway void)release OBJC_ARC_UNAVAILABLE;
+- (instancetype)autorelease OBJC_ARC_UNAVAILABLE;
+- (NSUInteger)retainCount OBJC_ARC_UNAVAILABLE;
+...
+@end
 
-# 
+```
+# 用法
+在支持ARC的情况下，不需要写额外的代码即可实现自动内存管理。
